@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+  <head>
+  </head>
+  <body>
+    <div id="webchat">
+      <script src="https://storage.googleapis.com/mrbot-cdn/webchat-0.5.8.js"></script>
+      <script>
+        WebChat.default.init({
+          selector: "#webchat",
+          initPayload: "/get_started",
+          interval: 1000, // 1000 ms between each message
+          socketUrl: "https://2edb4974.ngrok.io",
+          //socketUrl: "http://localhost:5500", //uncomment both for local
+          //socketPath: "/socket.io/",
+          title: "HeRo",
+          inputTextFieldHint: "Type a message...",
+          connectingText: "Waiting for server...",
+          hideWhenNotConnected: false,
+          fullScreenMode: true,
+          profileAvatar: "./assets/bot.png",
+          openLauncherImage: 'myCustomOpenImage.png',
+          closeLauncherImage: 'myCustomCloseImage.png',
+          params: {
+            images: {
+              dims: {
+                width: 300,
+                height: 200,
+              }
+            },
+            storage: "session"
+          }
+        })
+      </script>
+    </div>
+  </body>
+</html>
