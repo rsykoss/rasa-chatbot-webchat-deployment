@@ -1,5 +1,6 @@
 intents:
   - greet
+  - get_started
   - goodbye
   - affirm
   - deny
@@ -12,8 +13,11 @@ actions:
 - utter_did_that_help
 - utter_happy
 - utter_goodbye
-
+- utter_intro
 templates:
+  utter_intro:
+  - text: "Hi! My name is rsykoss :) Nice to meet you!"
+
   utter_greet:
   - text: "Hey! How are you?"
 

@@ -2,6 +2,7 @@
   "states": [
     "intent_affirm",
     "intent_deny",
+    "intent_get_started",
     "intent_goodbye",
     "intent_greet",
     "intent_mood_great",
@@ -17,6 +18,7 @@
     "prev_utter_cheer_up",
     "prev_utter_did_that_help",
     "prev_utter_happy",
-    "prev_utter_goodbye"
+    "prev_utter_goodbye",
+    "prev_utter_intro"
   ]
 }

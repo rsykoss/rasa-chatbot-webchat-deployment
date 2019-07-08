@@ -194,6 +194,45 @@ pipeline: spacy_sklearn
 ```
 This is where we can also define policies like fallback policy or twostage fallback policy for better intent handling. 
 
+## Define initial payload for webchat
+Let's create one additional intent called /get_started which is going to appear at the start of the chat. (Since the index.html's initial payload is called get_started)
+1. Include an intent called `get_started` in the `domain.yml` file. Also append an utterance called `utter_intro` under the section called action so that the bot can introduce itself in the beginning. Then define this utterance in the template section of the same file.
+```
+intents:
+  - greet
+  - get_started
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+
+actions:
+- utter_intro
+- utter_greet
+
+templates:
+  utter_intro:
+  - text: "Hi! My name is rsykoss :) Nice to meet you!"
+  
+```
+2. Include this intent with the utterance at the start of every story in `stories.md` so that it will appear at the start. For example, the first path will look like this. Do this for all the other stories.
+```
+## happy path
+* get_started
+  - utter_intro
+* greet
+  - utter_greet
+* mood_great
+  - utter_happy
+
+## sad path 1
+* get_started
+  - utter_intro
+.........
+```
+Now we have the initial payload so once we load the webchat, the bot will say "Hi! My name is rsykoss :) Nice to meet you!" first before you type in anything else. 
+
 ## Rasa Train & Test
 ### Using terminal
 Now that we have the default template, we can test it out. 
@@ -229,9 +268,10 @@ After training, run the rasa server:
 ```
 python -m rasa.server
 ```
-After that, you can either open up the index.html file manually or run flask by doing:
+After that, you can either open up the `index.html` file manually or run flask by doing:
 ```
 python app.py
 ```
 
 ## Using Custom Actions
+Let's define some custom actions. 
