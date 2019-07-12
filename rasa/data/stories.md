@@ -1,6 +1,9 @@
 ## happy path
 * get_started
   - utter_intro
+* say_name
+  - action_save_name
+  - utter_name
 * greet
   - utter_greet
 * mood_great
